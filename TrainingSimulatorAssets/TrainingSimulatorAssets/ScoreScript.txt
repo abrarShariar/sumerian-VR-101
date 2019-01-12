@@ -1,0 +1,48 @@
+'use strict';
+
+
+// Called when play mode starts.
+//
+
+function setup(args, ctx) {
+
+	//this variable represents score
+    ctx.score = 0;
+
+	//define ui elements
+    ctx.domComponent = ctx.entity.dom3dComponent;
+
+	//add listener to detect when something lands in orange bucket
+    sumerian.SystemBus.addListener('IntoBucketOrange', ()=>{
+
+        if (ctx.worldData.ballColor === 'orange'){
+
+			//run the UpdateScore function
+            UpdateScore(args, ctx);
+            }
+        });
+
+    //add listener to detect when something lands in blue bucket
+    sumerian.SystemBus.addListener('IntoBucketBlue', ()=>{
+
+        if (ctx.worldData.ballColor === 'blue'){
+
+			//run the UpdateScore function
+            UpdateScore(args, ctx);
+            }
+    });
+}
+
+function UpdateScore(agrs, ctx){
+
+	//add a point to the score
+    ctx.score = ctx.score + 1;
+
+	//update the ui
+    document.getElementById('score').innerHTML = ctx.score;
+    ctx.domComponent.updateDomElement(ctx.domComponent.domElement);
+}
+
+// Defines script parameters.
+//
+var parameters = [];

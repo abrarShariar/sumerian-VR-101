@@ -1,0 +1,16 @@
+<link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet"> 
+
+<style>
+
+.scoreboard {
+	font-size: 500px;
+	margin: 0 auto;
+	font-family: 'Press Start 2P', cursive;
+	color: green;
+	background-color: black;
+}
+</style>
+
+<p class="scoreboard" id='score'>
+0
+</p>
